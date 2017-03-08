@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+
+<title>Installing Plugin</title>
+</head>
+<body >
+
+	<form action="#" th:action="@{/}" th:object="${selectedScripts}"
+		method="post" name="frm1" role="form">
+		<select th:each="ss:${plugin2ScriptList}" th:name="${ss.key}" th:field="*{selectedScripts['__${ss.key}__']}">
+			<option th:each="ssl : ${ss.value}" th:value="${ssl}" th:text="${ssl}"  ></option>
+		</select>
+		<br/>
+		<input type="submit" />
+	</form>
+</body>
+</html>
